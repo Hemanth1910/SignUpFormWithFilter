@@ -1,0 +1,53 @@
+
+<div>
+  <h1>SignUp</h1>
+</div>
+
+<form action="" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 230px; height: 200px; border: 1px solid black;  border-radius: 10px;">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" name="name" formControlName="name">
+    </div>
+    <div>
+      <label for="name">Password: </label>
+      <input type="password" name="password" formControlName="password" maxlength="8">
+    </div>
+    <div>
+      <label for="name">Email: </label>
+      <input type="text" name="email" formControlName="email">
+    </div>
+    <div>
+      <label for="name">Phone: </label>
+      <input type="text" name="phone" formControlName="contact" maxlength="10">
+    </div> <br>
+    <div style="margin-left: 20px;">
+      <button>Submit</button>
+    </div>
+  </div> 
+</form>
+
+
+<div>
+   <h1>User Data</h1>  
+   <div>
+     <input  class="form-control" type="text" name="search" [(ngModel)]="searchValue"  placeholder="Search...">
+   </div>
+   <div>
+    <div *ngIf="result_data.length">
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>phone</th>
+          <th>Email</th>
+        </thead>
+        <tbody *ngFor="let item of result_data | filter:searchValue ">
+          <td>{{item.name}}</td>
+          <td>{{item.contact}}</td>
+          <td>{{item.email}}</td>
+        </tbody>
+      </table>
+    </div>
+   </div>
+</div>
+
